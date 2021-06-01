@@ -1,0 +1,117 @@
+﻿@using KidShopOnline.Models
+@model OrderDetails
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content">
+    <div>
+        <h4>Sipariş Bilgileri</h4>
+        <div class="row">
+
+            @if (TempData["mesaj"] != null)
+            {
+                <div class="alert alert-success alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <h4> Başarılı!</h4>
+                    Bilgileriniz kaydedildi.
+                </div>
+            }
+        </div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                Sipariş Durumu
+            </dt>
+
+            <dd>
+                <div class="col-md-6">
+                    @using (Html.BeginForm("UpdateOrderState", "Order", FormMethod.Post))
+                    {
+                        @Html.HiddenFor(i => i.OrderId)
+                        @Html.EnumDropDownListFor(i => i.OrderState, "Sipariş Durumunu Seçiniz", new { @class = "form-control" })
+                        <br />
+                        <div class="col-md-3">
+                            <button type="submit" class="btn btn-warning">Sipariş Durumunu Güncelle</button>
+                        </div>
+                    }
+                </div>
+            </dd>
+            <br />
+            <dt>
+                Kullanıcı Adı
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(Model => Model.UserName)
+            </dd>
+            <dt>
+                Sipariş Numarası
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(Model => Model.OrderNumber)
+            </dd>
+            <dt>
+                Toplam Tutar
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(Model => Model.Total)
+            </dd>
+            <dt>
+                Sipariş Tarihi
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(Model => Model.OrderDate)
+            </dd>
+            <dt>
+                Adres
+            </dt>
+
+            <dd>
+
+                İl:  @Html.DisplayFor(Model => Model.City)<br />
+                İlçe:  @Html.DisplayFor(Model => Model.District)<br />
+                Mahalle:  @Html.DisplayFor(Model => Model.Neighborhood)<br />
+                Posta Kodu:  @Html.DisplayFor(Model => Model.PostCode)<br />
+                Adres:  @Html.DisplayFor(Model => Model.Address)<br />
+            </dd>
+
+
+        </dl>
+    </div>
+    <table class="table table-condensed">
+        <thead>
+            <tr class="cart_menu">
+                <td class="image">Resim</td>
+                <td class="date">Ürün Adı</td>
+                <td class="price">Toplam Tutar (₺)</td>
+
+                <td class="quantity">Adet</td>
+
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.OrderLine)
+            {
+                <tr>
+
+                    <td><img src="~/Content/images/@item.Image" height="75px" width="75px" /></td>
+                    <td>@item.ProductName</td>
+                    <td>@item.Price</td>
+                    <td>@item.Quantity</td>
+                    <td><a href="/Home/ProductDetails/@item.ProductId" class="btn btn-warning" target="_blank">Ürün Detay</a></td>
+
+                </tr>
+            }
+
+
+        </tbody>
+    </table>
+
+</section>
+

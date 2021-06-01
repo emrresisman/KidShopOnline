@@ -1,0 +1,106 @@
+﻿@model KidShopOnline.Models.OrderDetails
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="cart_items">
+    <div class="container">
+        <div class="breadcrumbs">
+            <ol class="breadcrumb">
+
+                <li class="active">Siparişlerim</li>
+            </ol>
+        </div>
+
+        <div class="table-responsive cart_info">
+            <table class="table table-condensed">
+                <thead>
+                    <tr class="cart_menu">
+                        <td class="image">Sipariş ID</td>
+                        <td class="image">Sipariş Numarası</td>
+                        <td class="date">Sipariş Tarihi</td>
+                        <td class="price">Toplam Tutar (₺)</td>
+
+                        <td class="quantity">Sipariş Durumu</td>
+
+                        <td>Adres</td>
+                    </tr>
+                </thead>
+                <tbody>
+                
+                    <tr>
+                        <td>@Model.OrderId</td>
+                        <td>@Model.OrderNumber</td>
+                        <td>@Model.OrderDate</td>
+                        <td>@Model.Total</td>
+                        <td>
+                            @if (Model.OrderState == KidShopOnline.Entity.OrderState.Bekleniyor)
+                            {
+                                <a class="btn btn-danger">Sipariş Bekleniyor</a>
+                            }
+                            else if (Model.OrderState == KidShopOnline.Entity.OrderState.Onaylandı)
+                            {
+                                <a class="btn btn-primary">Sipariş Onaylandı</a>
+                            }
+                            else if (Model.OrderState == KidShopOnline.Entity.OrderState.Paketlendi)
+                            {
+                                <a class="btn btn-info">Ürün Paketlendi</a>
+                            }
+                            else if (Model.OrderState == KidShopOnline.Entity.OrderState.Kargolandı)
+                            {
+                                <a class="btn btn-success">Kargoya Verildi</a>
+                            }
+
+
+                        </td>
+                        <td>@Model.Address <br />
+                            @Model.City<br />
+                            @Model.District<br />
+                            @Model.Neighborhood<br />
+                            @Model.PostCode<br />
+                        </td>
+
+                    </tr>
+                    
+
+
+                </tbody>
+            </table><br />
+
+            <table class="table table-condensed">
+                <thead>
+                    <tr class="cart_menu">
+                        <td class="image">Resim</td>
+                        <td class="date">Ürün Adı</td>
+                        <td class="price">Toplam Tutar (₺)</td>
+
+                        <td class="quantity">Adet</td>
+
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.OrderLine)
+                    {
+                        <tr>
+
+                            <td><img src="~/Content/images/@item.Image" height="75px" width="75px" /></td>
+                            <td>@item.ProductName</td>
+                            <td>@item.Price</td>
+                            <td>@item.Quantity</td>
+                            <td><a href="/Home/ProductDetails/@item.ProductId" class="btn btn-warning" target="_blank">Ürün Detay</a></td>
+
+                        </tr>
+                    }
+
+
+                </tbody>
+            </table>
+        </div>
+
+
+
+
+</section>
+

@@ -1,0 +1,33 @@
+﻿
+@*<li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>*@
+
+<ul class="nav navbar-nav">
+    @if (Request.IsAuthenticated)
+    {
+        if (this.User.IsInRole("admin"))
+        {
+            <li><a href="/Product/Index" target="_blank"><span class="fa fa-user"></span>   Admin Paneli</a></li>
+            <li><a href="/Account/UserProfile"><span class="fa fa-user"></span>  Profilim</a></li>
+            <li><a href="/Account/Index">@User.Identity.Name</a></li>
+            <li><a href="/Account/Logout"><span class="fa fa-sign-out"></span>   Çıkış</a></li>
+
+
+
+        }
+        else
+        {
+
+            <li><a href="/Account/UserProfile"><span class="fa fa-user"></span>  Profilim</a></li>
+            <li><a href="/Account/Index">@User.Identity.Name</a></li>
+            <li><a href="/Cart"><i class="fa fa-shopping-cart"></i> Sepet</a></li>
+            <li><a href="/Account/Logout"><span class="fa fa-sign-out"></span>   Çıkış</a></li>
+
+        }
+    }
+    else
+    {
+        <li><a href="/Account/Register"> <span class="fa  fa-check-square-o"></span>  Kayıt Ol</a></li>
+        <li><a href="/Account/Login"><span class="fa fa-sign-in"></span>  Giriş Yap</a></li>
+    }
+
+</ul>

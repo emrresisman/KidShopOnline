@@ -1,0 +1,43 @@
+﻿@model KidShopOnline.Models.Login
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="form">
+    <!--form-->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-offset-1">
+                <div class="login-form">
+                    <!--login form-->
+                    @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "form-horizontal" }))
+                    {
+                        <h2 style="margin-left:15px">Hesabınıza giriş yapın</h2>
+                        <form class="form-horizontal" action="#">
+                            <div class="col-sm-10">
+                                @Html.EditorFor(model => model.Username, new { htmlAttributes = new { placeholder = "Kullanıcı Adınız", @class = "form-control", @style = "max-width:150%" } })
+                                @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-sm-10">
+                                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { placeholder = "Şifreniz", type = "password", @class = "form-control", @style = "max-width:150%" } })
+                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-sm-10">
+                                Beni hatırla.
+                                <input style="height:8px;width:12px" type="checkbox" class="checkbox">
+
+                            </div>
+                            <button style="margin-left:15px" type="submit" class="btn btn-default">Giriş Yap</button>
+                        </form>
+                    }
+
+                </div><!--/login form-->
+            </div>
+           
+           
+        </div>
+    </div>
+</section>
+

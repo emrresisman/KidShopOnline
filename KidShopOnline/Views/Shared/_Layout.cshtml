@@ -1,0 +1,243 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Home | E-Shopper</title>
+    <link href="/Site/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/Site/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/Site/css/prettyPhoto.css" rel="stylesheet">
+    <link href="/Site/css/price-range.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link href="/Site/css/animate.css" rel="stylesheet">
+    <link href="/Site/css/main.css" rel="stylesheet">
+    <link href="/Site/css/responsive.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+</head><!--/head-->
+
+<body>
+    <header id="header">
+        <!--header-->
+        <div class="header_top">
+            <!--header_top-->
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="contactinfo">
+                            <ul class="nav nav-pills">
+                                <li><a href="#"><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
+                                <li><a href="#"><i class="fa fa-envelope"></i> info@domain.com</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="social-icons pull-right">
+                            <ul class="nav navbar-nav">
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!--/header_top-->
+
+        <div class="header-middle">
+            <!--header-middle-->
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="logo pull-left">
+                            <a href="/Home/Index"><img height="60px" width="150px" src="~/Content/images/logo.png" alt="" /></a>
+                        </div>
+                       
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="shop-menu pull-right">
+                            @Html.Partial("LoginPartial")
+                            @*<ul class="nav navbar-nav">
+                                <li><a href="#"><i class="fa fa-user"></i> Account</a></li>
+                                <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
+                                <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
+                                <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+                                <li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
+                            </ul>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!--/header-middle-->
+
+        <div class="header-bottom">
+            <!--header-bottom-->
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-9">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+                        <div class="mainmenu pull-left">
+                            <ul class="nav navbar-nav collapse navbar-collapse">
+                                <li><a href="/Home/Index" class="active">Anasayfa</a></li>
+                                <li><a href="/Home/Product">Ürünler</a></li>
+                               
+                                <li class="dropdown">
+                                    <a href="#">Hızlı İşlemler<i class="fa fa-angle-down"></i></a>
+                                    <ul role="menu" class="sub-menu">
+                                        <li><a href="/Account/Register">Hızlı Kayıt Ol</a></li>
+                                        <li><a href="/Account/Login">Hızlı Giriş Yap</a></li>
+                                        <li><a href="/Account/UserProfile">Profilimi Güncelle</a></li>
+                                        <li><a href="/Account/ChangePassword">Şifremi Değiştir</a></li>
+                                        <li><a href="/Account/Index">Siparişlerim</a></li>
+                                        <li><a href="/Cart">Sepetim</a></li>
+
+                                    </ul>
+                                </li>
+
+
+                            </ul>
+                        </div>
+                    </div>
+                    @Html.Partial("Arama")
+                    @*<div class="col-sm-3">
+                        <div class="search_box pull-right">
+                            <input type="text" placeholder="Search" />
+                            <button type="submit">Ara</button>
+                        </div>
+                    </div>*@
+                </div>
+            </div>
+        </div><!--/header-bottom-->
+    </header><!--/header-->
+
+   
+
+   @RenderBody()
+    <footer id="footer">
+        <!--Footer-->
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="companyinfo">
+                            <h2><span>Kid</span>-Shop Online</h2>
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-3 pull-right">
+                        <div class="address">
+                            <img src="/Site/images/home/map.png" alt="" />
+                            <p>Esentepe, Büyükdere Cd. No.181, 34394 Şişli/İstanbul</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-widget">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <div class="single-widget">
+                            <h2>Servis</h2>
+                            <ul class="nav nav-pills nav-stacked">
+                                <li><a href="#">Çevrimiçi Yardım</a></li>
+                                <li><a href="#">Bize Ulaşın</a></li>
+                                <li><a href="#">Sipariş Durumu</a></li>
+                                <li><a href="#">Konumu Değiştir</a></li>
+                                <li><a href="#">S.S.S</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="single-widget">
+                            <h2>Hızlı Alışveriş</h2>
+                            <ul class="nav nav-pills nav-stacked">
+                                <li><a href="/Home/Product">Tüm Ürünler</a></li>
+                                <li><a href="/Home/ProductList/1">Tişört</a></li>
+                                <li><a href="/Home/ProductList/2">Çorap</a></li>
+                                <li><a href="/Home/ProductList/3">Eldiven</a></li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="single-widget">
+                            <h2>Politikalar</h2>
+                            <ul class="nav nav-pills nav-stacked">
+                                <li><a href="#">Kullanım Koşulları</a></li>
+                                <li><a href="#">K.V.K.K</a></li>
+                                <li><a href="#">İade Politikası</a></li>
+                                <li><a href="#">Faturalandırma Sistemi</a></li>
+                                <li><a href="#">Destek</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="single-widget">
+                            <h2>Kid Shop Online Hakkında</h2>
+                            <ul class="nav nav-pills nav-stacked">
+                                <li><a href="#">Şirket Bilgisi</a></li>
+                                <li><a href="#">Kariyer</a></li>
+                                <li><a href="#">Mağaza Konumu</a></li>
+                                
+                                <li><a href="#">Telif Hakları</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-sm-offset-1">
+                        <div class="single-widget">
+                            <h2>Haberdar Ol</h2>
+                            <form action="#" class="searchform">
+                                <input type="text" placeholder="Mail adresinizi girin" />
+                                <button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i></button>
+                                <p>Son güncellemeleri bültenimize abone <br />olarak takip edebilirsin.</p>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <p class="pull-left">Copyright © 2021 Kid Shop Online Inc. Tüm Hakları Saklıdır.</p>
+                    
+                </div>
+            </div>
+        </div>
+
+    </footer><!--/Footer-->
+
+
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.scrollUp.min.js"></script>
+    <script src="js/price-range.js"></script>
+    <script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
